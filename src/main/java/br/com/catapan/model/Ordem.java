@@ -16,6 +16,8 @@ public class Ordem extends PanacheEntityBase {
 
     private String tipo;
 
+    private String status;
+
     private LocalDate data;
 
     @Column(name = "user_id")
@@ -54,5 +56,13 @@ public class Ordem extends PanacheEntityBase {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
