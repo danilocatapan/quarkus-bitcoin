@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/bitcoins")
-@RegisterRestClient
+@RegisterRestClient(configKey = "bitcoin-api")
 public interface BitcoinService {
 
     @GET
