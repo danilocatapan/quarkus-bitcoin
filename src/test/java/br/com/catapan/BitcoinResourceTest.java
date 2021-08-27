@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import javax.ws.rs.core.Response;
 
 @QuarkusTest
-public class BitcoinResourceTest {
+class BitcoinResourceTest {
 
     @Test
-    public void testarSeStatusCodeDaRequisicaoEh200() {
+    void testarSeStatusCodeDaRequisicaoEh200() {
         RestAssured
                 .given()
                     .get("bitcoins")
