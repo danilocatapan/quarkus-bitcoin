@@ -1,8 +1,21 @@
 version: '3'
 
 services:
+  jvm_compose:
+    image: quarkus/bitcoin-jvm:latest
+    build:
+      context: ./
+      dockerfile: src/main/docker/Dockerfile.${QUARKUS_MODE:-jvm}
+    environment:
+      QUARKUS_DATASOURCE_URL: jdbc:postgresql://postgres_bitcoin:5432/postgres
+    networks:
+      - postgres-compose-network
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres_compose
+
   postgres_compose:
-    container_name: postgres_bitcoin
     image: postgres:12.2
     environment:
       POSTGRES_USER: bitcoin
